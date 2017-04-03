@@ -1,6 +1,6 @@
-def getSeat():
-    row = int(input("Row Number (integer): "))
-    seat = input("Seat Number (A-F): ")
+def getSeat(rows, seats):
+    row = int(input("Row Number (1-{}): ".format(str(rows))))
+    seat = input("Seat Number (A-{}): ".format(chr(64+seats)))
     a = ord(seat.upper()) - ord("A")
     Seat_wanted = [row-1, a]
     return (Seat_wanted)
@@ -11,10 +11,8 @@ def createTable(row, seats):
 
 
 def printTable(table):
-    # two python functions for ascii
-    # ord(x) and chr(x)
-    # ord - finds you the ascii value
-    # chr - converts ascii value into character
+    print("SEATING CHART   Available Seats: {}".format(availableSeats(table)))
+
     rows = len(table)
     seats = len(table[0])
 
@@ -36,6 +34,13 @@ def printTable(table):
         eachRowString = ""
 
 
+def availableSeats(table):
+    count = 0
+    for row in table:
+        for seat in row:
+            if seat:
+                count += 1
+    return count
 
 
 
@@ -58,7 +63,7 @@ def main():
     ###########
         if menu == 2:
             while True:
-                row , col = getSeat()
+                row , col = getSeat(NUM_ROWS, NUM_SEATS)
                 if table[row][col]:
                     table[row][col] = False
                     printTable(table)
@@ -67,17 +72,7 @@ def main():
                     print("\nThat Seat Has Already Been Takin Sorry!!!\n")
     ###########
         if menu == 3:
-
-
-
-
-
-
-
-
-
-
-
+            print("Available Seats: {}".format(availableSeats(table)))
 
 
 #table = createTable(NUM_ROWS,NUM_SEATS)
