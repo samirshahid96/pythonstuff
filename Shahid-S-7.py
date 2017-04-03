@@ -1,43 +1,35 @@
 def getSeat():
     row = int(input("Row Number (integer): "))
     seat = input("Seat Number (A-F): ")
-
-    a = seat.upper()
-    Seat_wanted = [row,a]
+    a = ord(seat.upper()) - ord("A")
+    Seat_wanted = [row-1, a]
     return (Seat_wanted)
 
-L = [['-','-']]
-print(L)
 
-def createTAble(row, seats):
+def createTable(row, seats):
     a = []
-    for x in range(row):
-        a[x][0] = x
-
-    for y in range(seats):
-        a[0][y] = y
+    a = [['-' for y in range(seats)] for x in range(row)]
 
     return a
-
-def reset(numrows,numseats):
-    a = [['-' for y in range(numseats)] for x in range(numrows)]
-    return a
-
-
 
 
 def main():
-    NUM_ROWS = 6
-    NUM_SEATS = 5
-    a = ['-','x']
-    print("   {:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('A', 'B', 'C', 'D', 'E', 'F', 'G'))
-    print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('1:', a[0], a[1], 'C', 'D', 'E', 'F'))
-    print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('2:', 'A', 'B', 'C', 'D', 'E', 'F'))
-    print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('3:', 'A', 'B', 'C', 'D', 'E', 'F'))
-    print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('4:', 'A', 'B', 'C', 'D', 'E', 'F'))
-    print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('5:', 'A', 'B', 'C', 'D', 'E', 'F'))
-    print([[x for x in range(NUM_ROWS)], [y for y in range(NUM_SEATS)]])
-    print([['-' for y in range(NUM_SEATS)] for x in range(NUM_ROWS)])
+    while True:
+        NUM_ROWS = 6
+        NUM_SEATS = 5
+        table = createTable(NUM_ROWS,NUM_SEATS)
+        row , col = getSeat()
+        table[row][col] = 'X'
+        print(table)
+
+    # print("   {:2} {:2} {:2} {:2} {:2} {:2} ".format('A', 'B', 'C', 'D', 'E', 'F',))
+    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('1:', 'B', 'C', 'C', 'D', 'E', 'F'))
+    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('2:', 'A', 'B', 'C', 'D', 'E', 'F'))
+    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('3:', 'A', 'B', table[2][2], 'D', 'E', 'F'))
+    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('4:', 'A', 'B', 'C', 'D', 'E', 'F'))
+    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('5:', 'A', 'B', 'C', 'D', 'E', 'F'))
+    #print([[x for x in range(NUM_ROWS)], [y for y in range(NUM_SEATS)]])
+    #print([['-' for y in range(NUM_SEATS)] for x in range(NUM_ROWS)])
 
 
 
