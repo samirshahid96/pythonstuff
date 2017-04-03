@@ -40,26 +40,54 @@ def printTable(table):
 
 
 def main():
-
     NUM_ROWS = 6
     NUM_SEATS = 5
     table = createTable(NUM_ROWS,NUM_SEATS)
+    ###########
     while True:
-        row , col = getSeat()
-        if table[row][col] == True:
-            table[row][col] = False
-        else:
-            print("\nThat Seat Has Already Been Takin Sorry!!!\n")
-        printTable(table)
+        print("Flight Reservation System")
+        print(" 1: Display Seat chart")
+        print(" 2: Reserve a seat")
+        print(" 3: Count available seats")
+        print(" 4: Quit")
+        menu = int(input("Enter your selection: "))
+    ###########
+        if menu == 1:
+            printTable(table)
+            print("\n")
+    ###########
+        if menu == 2:
+            while True:
+                row , col = getSeat()
+                if table[row][col]:
+                    table[row][col] = False
+                    printTable(table)
+                    break
+                else:
+                    print("\nThat Seat Has Already Been Takin Sorry!!!\n")
+    ###########
+        if menu == 3:
 
-    # print("   {:2} {:2} {:2} {:2} {:2} {:2} ".format('A', 'B', 'C', 'D', 'E', 'F',))
-    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('1:', 'B', 'C', 'C', 'D', 'E', 'F'))
-    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('2:', 'A', 'B', 'C', 'D', 'E', 'F'))
-    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('3:', 'A', 'B', table[2][2], 'D', 'E', 'F'))
-    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('4:', 'A', 'B', 'C', 'D', 'E', 'F'))
-    # print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('5:', 'A', 'B', 'C', 'D', 'E', 'F'))
-    #print([[x for x in range(NUM_ROWS)], [y for y in range(NUM_SEATS)]])
-    #print([['-' for y in range(NUM_SEATS)] for x in range(NUM_ROWS)])
+
+
+
+
+
+
+
+
+
+
+
+
+#table = createTable(NUM_ROWS,NUM_SEATS)
+#row , col = getSeat()
+#if table[row][col]:
+#table[row][col] = False
+#else:
+# print("\nThat Seat Has Already Been Takin Sorry!!!\n")
+#printTable(table)
+
 
 
 
