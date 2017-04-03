@@ -1,41 +1,43 @@
-"#python" 
+"#python"
+
+
 def getSeat():
     pass
 
 
 def createTable(rows, seats):
-	#creating a table with the values of rows and seats from the parameter
-	#using two for loops
-	# for loop ->   x for x in range(someValue) is similar to 
-	# for x in range(someValue):
-	#	x
-	return [[False for y in range(seats)] for x in range(rows)]
+    # creating a table with the values of rows and seats from the parameter
+    # using two for loops
+    # for loop ->   x for x in range(someValue) is similar to
+    # for x in range(someValue):
+    #	x
+    return [[True for y in range(seats)] for x in range(rows)]
+
 
 def printTable(table):
-	# two python functions for ascii 
-	# ord(x) and chr(x)
-	# ord - finds you the ascii value
-	# chr - converts ascii value into character 
-	rows = len(table)
-	seats = len(table[0])
+    # two python functions for ascii
+    # ord(x) and chr(x)
+    # ord - finds you the ascii value
+    # chr - converts ascii value into character
+    rows = len(table)
+    seats = len(table[0])
 
-	firstString = ""
-	for x in range(seats):
-		firstString += " {:2}".format(chr(65+x))  # 66 + 0 , 66 is b since we already added A 
-	print("  "+firstString)
+    firstString = ""
+    for x in range(seats):
+        firstString += " {:2}".format(chr(65 + x))  # 66 + 0 , 66 is b since we already added A
+    print("  " + firstString)
 
-	eachRowString = ""
-	for row in range(rows):
-		eachRowString += "{:2}".format(row+1)
-		for seat in range(seats):
-			if table[row][seat]:
-				eachRowString += " {:2}".format('-')
-			else:
-				eachRowString += " {:2}".format('x')
+    eachRowString = ""
+    for row in range(rows):
+        eachRowString += "{:2}".format(row + 1)
+        for seat in range(seats):
+            if table[row][seat]:
+                eachRowString += " {:2}".format('-')
+            else:
+                eachRowString += " {:2}".format('x')
 
-		print(eachRowString)
-		eachRowString = ""
-
+        print(eachRowString)
+        eachRowString = ""
 
 
 def main():
@@ -62,4 +64,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-    #hello world
+    # hello world
