@@ -42,7 +42,8 @@ def availableSeats(table):
                 count += 1
     return count
 
-
+def reset(table):
+    return createTable(len(table), len(table[0]))
 
 def main():
     NUM_ROWS = 6
@@ -55,6 +56,7 @@ def main():
         print(" 2: Reserve a seat")
         print(" 3: Count available seats")
         print(" 4: Quit")
+        print(" 5: Reset\n")
         menu = int(input("Enter your selection: "))
     ###########
         if menu == 1:
@@ -74,15 +76,12 @@ def main():
         if menu == 3:
             print("Available Seats: {}".format(availableSeats(table)))
 
+        if menu == 4:
+            print("Exiting Program - have a nice flight")
+            break
 
-#table = createTable(NUM_ROWS,NUM_SEATS)
-#row , col = getSeat()
-#if table[row][col]:
-#table[row][col] = False
-#else:
-# print("\nThat Seat Has Already Been Takin Sorry!!!\n")
-#printTable(table)
-
+        if menu == 5:
+            table = reset(table)
 
 
 
