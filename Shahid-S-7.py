@@ -32,7 +32,10 @@ def main():
     print("{:2} {:2} {:2} {:2} {:2} {:2} {:2}".format('5:', 'A', 'B', 'C', 'D', 'E', 'F'))
     print([[x for x in range(NUM_ROWS)], [y for y in range(NUM_SEATS)]])
     print([['-' for y in range(NUM_SEATS)] for x in range(NUM_ROWS)])
+    print('asdfs')
 
 
 if __name__ == "__main__":
     main()
+
+    #hello world
